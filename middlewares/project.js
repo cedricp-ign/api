@@ -117,7 +117,7 @@ async function insertProjectFromJson(req, res, next) {
 }
 
 async function getAllProjects(req, res, next) {
-  await req.client.query('SELECT * FROM projects')
+  await req.client.query('SELECT * FROM projects ORDER BY id ASC')
     .then((results) => {
       req.result = results.rows;
     })
